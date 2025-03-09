@@ -46,12 +46,32 @@ Operable is an MCP (Model Context Protocol) server that helps non-operations dev
 
 ## Usage
 
+### Running in stdio mode (default)
+
 1. Build and run the server:
    ```
    go run cmd/main.go
    ```
 
 2. Connect to the server using an MCP-compatible client like Cursor.
+
+3. Authenticate with your Google Cloud account when prompted.
+
+4. Use the available tools to diagnose and respond to incidents.
+
+### Running in SSE mode (HTTP)
+
+1. Build and run the server in SSE mode:
+   ```
+   go run cmd/main.go -mode=sse -addr=:8080 -base-url=http://localhost:8080
+   ```
+
+   Available flags:
+   - `-mode`: Server mode, either "stdio" (default) or "sse"
+   - `-addr`: Address to listen on in SSE mode (default: ":8080")
+   - `-base-url`: Base URL for SSE mode (default: "http://localhost:8080")
+
+2. Connect to the server using an MCP-compatible client that supports SSE mode.
 
 3. Authenticate with your Google Cloud account when prompted.
 
