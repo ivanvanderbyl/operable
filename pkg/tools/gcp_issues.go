@@ -8,7 +8,7 @@ import (
 
 	errorreporting "cloud.google.com/go/errorreporting/apiv1beta1"
 	"cloud.google.com/go/errorreporting/apiv1beta1/errorreportingpb"
-	"github.com/ivanvanderbyl/arnold/pkg/auth"
+	"github.com/ivanvanderbyl/operable/pkg/auth"
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
 	"google.golang.org/api/iterator"

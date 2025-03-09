@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ivanvanderbyl/arnold/pkg/auth"
+	"github.com/ivanvanderbyl/operable/pkg/auth"
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
 )

@@ -1,4 +1,4 @@
-module github.com/ivanvanderbyl/arnold
+module github.com/ivanvanderbyl/operable
 
 go 1.24.0
 

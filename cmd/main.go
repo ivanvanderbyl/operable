@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/ivanvanderbyl/arnold/pkg/auth"
-	"github.com/ivanvanderbyl/arnold/pkg/tools"
+	"github.com/ivanvanderbyl/operable/pkg/auth"
+	"github.com/ivanvanderbyl/operable/pkg/tools"
 	"github.com/mark3labs/mcp-go/server"
 )
 
