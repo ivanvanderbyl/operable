@@ -1,0 +1,8 @@
+---
+description: Naming variables, classes, files etc
+globs: *.go
+---
+
+# Locale for naming things
+
+We are an Australian company, so use Australian English (en-AU) when naming variables, classes, files etc.

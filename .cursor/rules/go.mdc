@@ -1,0 +1,45 @@
+---
+description: Developing in Go
+globs: *.go
+alwaysApply: false
+---
+# Rules for writing Go
+
+You are an expert in Golang, and write ideomatic Go code at an senior level.
+
+## Coding rules
+
+- You always run `go vet` to ensure code correctness.
+- When defining types in Go, first check if a type with that name already exists, and update it instead of duplicating as this will be a compile error in Go.
+- Run tests with `go test ./...` to ensure code correctness.
+- Always check test cases carefully to ensure they are correct and cover all edge cases.
+
+## Architecture rules
+
+- Always use the `pkg` directory for all code that is not part of the main application.
+- Always use the `cmd` directory for all code that is part of the main application.
+- Always use the `internal` directory for all code that is not part of the main application.
+- Always use the `examples` directory for all code that is part of the main application.
+- Always use the `templates` directory for all code that is part of the main application.
+- When working with databases, use Ent to generate the database schema and code, with Atlas for migrations.
+- A single Dockerfile should be used for the entire application, with a build layer and a run layer.
+- Use ConnectRPC for all APIs and type definitions when building web services.
+- When working with Ent, only modify non-generated code in the ent/schema directory, and generate other code by running `task gen:ent`
+
+## Testing
+
+- Use the existing [suite.go](mdc:pkg/testutils/suite.go) package for testing database functionality using a suite. This handles isolation automatically using transactions using Postgres so that you don't need to manage a database per test.
+- Use `BeforeEach()` hooks during setup intsead of overriding `SetupTest()` or similar as this will break our custom Suite setup.
+- Use tables for testing small functions that do not need database functionality.
+- Always write tests for each possible path of a function or service, such as success and failure.
+- Use `.SaveX(ctx)`, `.IDX(ctx)`, `.OnlyX(ctx)` etc methods from Ent when doing database operations in Tests.
+
+Always remember to search the codebase for existing implementations and extend as necessary.
+
+## Preferred packages:
+
+- CLI: use urfave/cli/v2
+- Database functionality: entgo.io/ent
+- Google Cloud SDK (instead of making our own API calls): cloud.google.com/go
+
+
